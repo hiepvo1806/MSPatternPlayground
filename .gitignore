@@ -9,3 +9,5 @@
 /MSPatternPlayground/.vs/MSPatternPlayground/config
 /MSPatternPlayground/ProtectedAPI/bin/Debug/netcoreapp2.2
 /MSPatternPlayground/ProtectedAPI/obj
+/MSPatternPlayground/CallingClient/bin/Debug/netcoreapp3.1
+/MSPatternPlayground/CallingClient/obj

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IS4", "IS4\IS4.csproj", "{2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtectedAPI", "ProtectedAPI\ProtectedAPI.csproj", "{5F3738F3-CB55-44EC-B7F4-7E8BA75A357B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallingClient", "CallingClient\CallingClient.csproj", "{CFD5774D-5CEB-43A6-AAF6-650D6B684B8C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5F3738F3-CB55-44EC-B7F4-7E8BA75A357B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F3738F3-CB55-44EC-B7F4-7E8BA75A357B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F3738F3-CB55-44EC-B7F4-7E8BA75A357B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFD5774D-5CEB-43A6-AAF6-650D6B684B8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFD5774D-5CEB-43A6-AAF6-650D6B684B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFD5774D-5CEB-43A6-AAF6-650D6B684B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFD5774D-5CEB-43A6-AAF6-650D6B684B8C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

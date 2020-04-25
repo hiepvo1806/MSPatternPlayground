@@ -1,5 +1,10 @@
 metadata : http://localhost:5000/.well-known/openid-configuration
 
-add resource : api
-add client
-	 AllowedScopes = { "api1" }
+is4
+	add resource : api
+	add client
+		 AllowedScopes = { "api1" }
+protected api project
+
+client
+	nuget: IdentityModel 
