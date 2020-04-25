@@ -1,5 +1,6 @@
 ﻿using IdentityModel.Client;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -17,22 +18,60 @@ namespace CallingClient
 
         static async Task Run()
         {
-            
-            // discover endpoints from metadata
+            var httpClient = new HttpClient();
+            var accessToken = await GetToken(httpClient);
+            httpClient.SetBearerToken(accessToken);
+            try
+            {
+                var response = await httpClient.GetAsync(
+                    "https://localhost:5001/api/UserIdentity"
+                    );
+                if (!response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine(response.StatusCode);
+                }
+                else
+                {
+                    var content = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine(JArray.Parse(content));
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+           
+        }
+        static async Task<string> GetToken(HttpClient client)
+        {
             var disco = await DiscoveryClient.GetAsync("http://localhost:5000");
             if (disco.IsError)
             {
                 Console.WriteLine(disco.Error);
-                return;
+                throw new Exception(JsonConvert.SerializeObject(disco));
             }
             else
             {
-                JsonSerializer serializer = new JsonSerializer();
-                var tokenEndpoint = disco.TokenEndpoint;
-                var keys = disco.KeySet.Keys;
-                Console.WriteLine(JsonConvert.SerializeObject(tokenEndpoint, Formatting.Indented));
-                Console.WriteLine(JsonConvert.SerializeObject(keys, Formatting.Indented));
+                var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+                {
+                    Address = disco.TokenEndpoint,
+                    ClientId = "client",
+                    ClientSecret = "secret",
+                    Scope = "api1"
+                });
+
+                if (tokenResponse.IsError)
+                {
+                    throw new Exception(JsonConvert.SerializeObject(tokenResponse));
+                }
+                else
+                {
+                    Console.WriteLine(tokenResponse.AccessToken);
+                    return tokenResponse.AccessToken;
+                }
             }
         }
+
     }
 }
