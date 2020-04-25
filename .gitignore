@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/MSPatternPlayground/.vs/MSPatternPlayground/v16
+/MSPatternPlayground/IS4/bin/Debug/netcoreapp2.2
+/MSPatternPlayground/IS4/obj
+/MSPatternPlayground/.vs/MSPatternPlayground/config
