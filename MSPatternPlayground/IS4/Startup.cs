@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IS4.Resource;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,7 +17,9 @@ namespace IS4
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentityServer()
-            .AddDeveloperSigningCredential();
+            .AddDeveloperSigningCredential()
+            .AddInMemoryApiResources(IS4Config.GetApiResources())
+            .AddInMemoryClients(IS4Config.GetClients());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
